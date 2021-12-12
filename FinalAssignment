@@ -1,0 +1,71 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+/*
+ *   Welcome to your final assignment!
+ *
+ * The tasks are listed below with how much each affects your grade.
+ *   In addition to the 2 tasks, you will also be graded on the regular code/project quality and project 
+ *   requirements outlined in the assignment description on teams.
+ *
+ *  All of your work should be done in Visual Studio, you do not need to edit the Unity project at all.
+ *
+ *  You can test if your code works by running the game and visiting the shop and buying items, and by going to your inventory and using those items.
+ *
+ *  Note: You can change the players starting gold by changing 'Starting Gold' on the Wallet component.
+ *
+ */
+/*
+   *   Task 1) 30% Extend the shops inventory!
+   *       The shop already has potions to boost the players HP. Create new shop items
+   *       so that the player can boost their attack, defense and mana.
+   *
+   *       Create a Weapon class, Armor class and ManaPotion class that boost the players Attack, Defense and Mana respectively
+   *       - 10% These items should inherit from the base Item class
+   *       - 10% Weapons and Armor should each use a different color to change the background color of their 'ShopItemListing' (See 'Color' property on Item class)
+   *       - 10% These new items need to work with the existing shop system
+   *       - 10% Populate the below _shopInventory array with at least 10 different items
+   *
+   *       All items are considered consumable.  Using a weapon from your inventory should increase your attack.  Using armor should increase your defense.
+   *       
+   */
+public static class ItemShopInventory
+{
+    //
+    private class Weapon
+    {
+
+    }
+     
+   
+
+    private static Item[] _shopInventory = {
+        new Potion("Basic Potion", "Heal a small amount", 10),
+        new Potion("Super Potion", "Heal a big amount", 50, 50),
+        new Potion("Full Potion", "Heals full HP!", 100, 50000),
+        new Potion("Snake Oil Potion", "Heals full HP?", 150, 0),
+    };
+
+    /// <summary>
+    /// This function is called every time the player goes from the Inventory screen to the Item Shop screen
+    /// </summary>
+    /// <returns>A list containing 4 random shop items</returns>
+    public static List<Item> GetRandomShopItems()
+    {
+        /* Task 2) 15% Update this function to return a list of four random items
+        *       - The items should be unique (hint: A temporary list might be very useful here..)
+        *       - There should be exactly 4 items returned
+        *       - Should be free of bugs
+        */
+        
+        return _shopInventory.ToList();
+    }
+}
+
+/* Task 3) 15% Log out some values from your random item list
+*               - Create 3 new functions and call them *inside* your GetRandomShopItems function before you return the new list.
+*               - 5% Function 1: Calculate the total cost of all 4 items and Debug.Log it out/
+*               - 5% Function 2: Calculate what a 15% sales tax would be for each item and Debug.Log it out/
+*               - 5% Function 3: Figure out what the most expensive item is in the list and Debug.Log its name and description. 
+*/
